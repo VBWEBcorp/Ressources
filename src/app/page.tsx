@@ -51,7 +51,7 @@ export default function Home() {
                       Guide SEO
                     </h2>
                     <p className="text-white/70 leading-relaxed">
-                      Découvrez les secrets d'un référencement efficace et boostez votre visibilité en ligne.
+                      Découvrez les secrets d&apos;un référencement efficace et boostez votre visibilité en ligne.
                     </p>
                   </div>
                 </div>
@@ -81,7 +81,7 @@ export default function Home() {
           {/* Présentation */}
           <div className="max-w-3xl mx-auto p-8 rounded-2xl bg-white/5 border border-white/10">
             <p className="text-lg text-white/80 leading-relaxed">
-              Si vous êtes ici, c'est probablement parce que vous cherchez un expert capable de vous accompagner 
+              Si vous êtes ici, c&apos;est probablement parce que vous cherchez un expert capable de vous accompagner 
               dans la réussite de votre projet web. En tant que consultant en marketing digital, je vous accompagne 
               que ce soit pour créer un site internet, optimiser votre référencement sur Google ou encore développer 
               des solutions web sur mesure.

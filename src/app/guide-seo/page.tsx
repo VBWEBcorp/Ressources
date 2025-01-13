@@ -109,7 +109,7 @@ export default function GuideSEO() {
 
         <Link href="/" className="back-button">
           <ArrowLeft className="w-5 h-5" />
-          Retour à l'accueil
+          Retour à l&apos;accueil
         </Link>
 
         <div className="guide-content">
@@ -121,7 +121,7 @@ export default function GuideSEO() {
           <section id="bases" className="content-section">
             <h2 className="section-heading">Les bases du SEO</h2>
             <p className="content-text">
-              Le SEO (Search Engine Optimization) est l'ensemble des techniques visant à améliorer 
+              Le SEO (Search Engine Optimization) est l&apos;ensemble des techniques visant à améliorer 
               le positionnement de votre site web dans les résultats des moteurs de recherche.
             </p>
             <ul className="content-list">
@@ -135,7 +135,7 @@ export default function GuideSEO() {
             <h2 className="section-heading">Pourquoi le SEO est important</h2>
             <p className="content-text">
               Un bon référencement naturel est crucial pour la visibilité de votre site web et 
-              l'acquisition de trafic qualifié.
+              l&apos;acquisition de trafic qualifié.
             </p>
             <ul className="content-list">
               <li>Augmentation du trafic organique</li>
