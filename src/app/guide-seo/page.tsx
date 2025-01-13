@@ -263,6 +263,7 @@ export default function GuideSEO() {
         </div>
 
         <GuideNavigation 
+          prevHref=""
           nextHref="#importance"
           nextLabel="Importance du SEO"
         />
