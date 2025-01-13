@@ -61,6 +61,7 @@ export default function ServicesSEO() {
         <GuideNavigation 
           nextHref="#methodologie"
           nextLabel="Notre méthodologie"
+          prevHref="#presentation"
         />
       </main>
     </div>
