@@ -3,19 +3,340 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary-blue: #264060;
+  --accent-blue: #4EBAEC;
+  --white: #FFFFFF;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--primary-blue);
+  color: var(--white);
+}
+
+.guide-container {
+  min-height: 100vh;
+  background-color: #264060;
+  color: white;
+}
+
+.guide-main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7dd3fc;
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(125, 211, 252, 0.1);
+}
+
+.guide-content {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+}
+
+.guide-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #7dd3fc;
+}
+
+.guide-subtitle {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.content-section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-heading {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #7dd3fc;
+}
+
+.content-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.content-list {
+  list-style: none;
+  padding: 0;
+}
+
+.content-list li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #e2e8f0;
+}
+
+.content-list li::before {
+  content: "•";
+  color: #7dd3fc;
+  position: absolute;
+  left: 0;
+}
+
+.nav-buttons {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(125, 211, 252, 0.3);
+  border-radius: 8px;
+  color: #7dd3fc;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover:not(:disabled) {
+  background: rgba(125, 211, 252, 0.1);
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .guide-main {
+    padding: 1rem;
+  }
+
+  .guide-content {
+    padding: 1rem;
+  }
+
+  .guide-title {
+    font-size: 2rem;
+  }
+
+  .guide-subtitle {
+    font-size: 1rem;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .guide-container {
+    @apply min-h-screen flex flex-col bg-[#264060];
+  }
+
+  .guide-header {
+    @apply relative py-12 px-4 text-center;
+  }
+
+  .back-button {
+    @apply absolute left-4 top-6 flex items-center gap-2 
+           text-white/70 hover:text-white transition-colors;
+  }
+
+  .guide-title {
+    @apply text-4xl font-bold mb-4
+           bg-gradient-to-r from-white to-[#4EBAEC]
+           bg-clip-text text-transparent;
+  }
+
+  .guide-subtitle {
+    @apply text-xl text-white/80 max-w-2xl mx-auto;
+  }
+
+  .section-nav {
+    @apply flex flex-wrap justify-center gap-4 px-4 mb-8
+           sticky top-0 py-4 bg-[#264060]/90 backdrop-blur-md
+           border-b border-white/10 z-50;
+  }
+
+  .section-button {
+    @apply px-6 py-2 rounded-full text-white/70
+           transition-all duration-200 text-sm
+           hover:text-white hover:bg-white/10
+           focus:outline-none focus:ring-2 focus:ring-[#4EBAEC]/50;
+  }
+
+  .section-button.active {
+    @apply bg-gradient-to-r from-[#4EBAEC] to-[#3b8bb3]
+           text-white shadow-lg;
+  }
+
+  .guide-content {
+    @apply px-4 pb-32 max-w-6xl mx-auto w-full;
+  }
+
+  .cards-grid {
+    @apply grid gap-6 sm:grid-cols-2;
+  }
+
+  .info-card {
+    @apply bg-gradient-to-br from-white/10 to-white/5
+           backdrop-blur-sm border border-white/10
+           rounded-2xl p-6
+           transition-all duration-300
+           hover:scale-[1.02] hover:shadow-xl
+           hover:border-[#4EBAEC]/30;
+  }
+
+  .card-title {
+    @apply text-xl font-bold mb-3
+           bg-gradient-to-r from-white to-[#4EBAEC]
+           bg-clip-text text-transparent;
+  }
+
+  .card-content {
+    @apply text-white/80 leading-relaxed;
+  }
+
+  .guide-footer {
+    @apply mt-auto py-8 px-4 border-t border-white/10
+           bg-[#264060]/90;
+  }
+
+  .footer-content {
+    @apply max-w-5xl mx-auto space-y-4 text-center;
+  }
+
+  .contact-info, .legal-info {
+    @apply flex flex-wrap items-center justify-center gap-3
+           text-sm text-white/60;
+  }
+
+  .footer-link {
+    @apply hover:text-white transition-colors;
+  }
+
+  .separator {
+    @apply text-white/20;
+  }
+
+  .cta-button {
+    @apply fixed bottom-6 left-4 right-4
+           bg-gradient-to-r from-[#4EBAEC] to-[#3b8bb3]
+           text-white font-medium text-lg
+           py-4 rounded-full text-center
+           shadow-lg
+           active:scale-[0.99] transition-all duration-200
+           hover:from-[#5ac4f5] hover:to-[#4298c1]
+           flex items-center justify-center gap-2
+           max-w-xl mx-auto;
+  }
+
+  .cta-button-icon {
+    @apply w-5 h-5 animate-pulse;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .guide-header {
+    @apply py-8;
+  }
+
+  .guide-title {
+    @apply text-3xl;
+  }
+
+  .guide-subtitle {
+    @apply text-lg;
+  }
+
+  .section-nav {
+    @apply gap-2 px-2;
+  }
+
+  .section-button {
+    @apply px-4 py-1.5 text-xs;
+  }
+
+  .cards-grid {
+    @apply grid-cols-1 gap-4;
+  }
+
+  .info-card {
+    @apply p-5;
+  }
+
+  .card-title {
+    @apply text-lg mb-2;
+  }
+
+  .card-content {
+    @apply text-sm;
+  }
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .guide-header {
+    @apply py-16;
+  }
+
+  .guide-content {
+    @apply px-8;
+  }
+
+  .section-nav {
+    @apply gap-6 px-8;
+  }
 }

@@ -1,101 +1,94 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { Book, Rocket, Mail, Phone } from 'lucide-react'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen relative overflow-hidden bg-[#264060]">
+      {/* Effet de fond futuriste */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Contenu principal */}
+      <div className="relative py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto space-y-16">
+          {/* Logo et Titre */}
+          <div className="text-center space-y-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-white">
+              VBWEB
+            </h1>
+            <p className="text-xl sm:text-2xl text-white/80">
+              Consultant en Marketing Digital
+            </p>
+          </div>
+
+          {/* Contact Info */}
+          <div className="flex flex-wrap justify-center gap-6">
+            <a 
+              href="mailto:contact@vbweb.fr" 
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-[#4EBAEC]/10 hover:border-[#4EBAEC] transition-all duration-300"
+            >
+              <Mail className="w-5 h-5 text-[#4EBAEC]" />
+              <span className="text-white/80">contact@vbweb.fr</span>
+            </a>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+              <Phone className="w-5 h-5 text-[#4EBAEC]" />
+              <span className="text-white/80">06 27 30 17 88</span>
+            </div>
+          </div>
+
+          {/* Cards */}
+          <div className="grid gap-8 sm:grid-cols-2">
+            {/* Guide SEO */}
+            <Link href="/guide-seo" className="group">
+              <div className="h-full p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-[#4EBAEC]/10 hover:border-[#4EBAEC] transition-all duration-300">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-[#4EBAEC]/10 group-hover:bg-[#4EBAEC]/20 transition-all duration-300">
+                    <Rocket className="w-7 h-7 text-[#4EBAEC]" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-[#4EBAEC] transition-colors duration-300">
+                      Guide SEO
+                    </h2>
+                    <p className="text-white/70 leading-relaxed">
+                      Découvrez les secrets d'un référencement efficace et boostez votre visibilité en ligne.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Services */}
+            <Link href="/services" className="group">
+              <div className="h-full p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-[#4EBAEC]/10 hover:border-[#4EBAEC] transition-all duration-300">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-[#4EBAEC]/10 group-hover:bg-[#4EBAEC]/20 transition-all duration-300">
+                    <Book className="w-7 h-7 text-[#4EBAEC]" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-[#4EBAEC] transition-colors duration-300">
+                      Services
+                    </h2>
+                    <p className="text-white/70 leading-relaxed">
+                      Développement web, SEO, et maintenance. Des solutions sur mesure pour votre succès digital.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Présentation */}
+          <div className="max-w-3xl mx-auto p-8 rounded-2xl bg-white/5 border border-white/10">
+            <p className="text-lg text-white/80 leading-relaxed">
+              Si vous êtes ici, c'est probablement parce que vous cherchez un expert capable de vous accompagner 
+              dans la réussite de votre projet web. En tant que consultant en marketing digital, je vous accompagne 
+              que ce soit pour créer un site internet, optimiser votre référencement sur Google ou encore développer 
+              des solutions web sur mesure.
+            </p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </div>
+    </main>
+  )
 }
